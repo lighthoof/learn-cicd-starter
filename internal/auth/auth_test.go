@@ -12,7 +12,8 @@ func TestGetAPIKey(t *testing.T) {
 		input http.Header
 		want  string
 	}{
-		"simple": {input: http.Header{"Authorization": []string{"ApiKey asdafdsagdfgsdh"}}, want: "asdafdsagdfgsdh"},
+		"simple":   {input: http.Header{"Authorization": []string{"ApiKey asdafdsagdfgsdh"}}, want: "asdafdsagdfgsdh"},
+		"trailing": {input: http.Header{"Authorization": []string{"ApiKey asdafdsagdfgsdh asdfgdfhd asdgrdfgf sdfgafds"}}, want: "asdafdsagdfgsdh"},
 	}
 
 	//got, err := GetAPIKey(http.Header{"Authorization": []string{"asdafdsagdfgsdh"}})
